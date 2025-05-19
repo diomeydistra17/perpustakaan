@@ -18,8 +18,9 @@
       <th scope="col">No.</th>
       <th scope="col">Username</th>
       <th scope="col">Nama</th>
+      <th scope="col">Alamat</th>
       <th scope="col">Email</th>
-      <th scope="col">Jenis</th>
+
       <th>Proses</th>
     </tr>
   </thead>
@@ -29,8 +30,8 @@
     <th scope="row">{{ ($user->currentPage() - 1) * $user->perPage() + $loop->iteration }}</th>
       <td>{{ $data->username }}</td>
       <td>{{ $data->nama }}</td>
+      <td>{{ $data->alamat }}</td>
       <td>{{ $data->email }}</td>
-      <td>{{ $data->jenis }}</td>
       <td>
         <a href="#" wire:click="edit({{ $data->id }})" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editPage">Edit</a>
         <a href="#" wire:click="confirm({{ $data->id }})" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapusPage">Hapus</a>
@@ -42,7 +43,7 @@
 </table>
 {{ $user->links() }}
 <div>
-    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPage">Tambah</a>
+    <!-- <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPage">Tambah</a> -->
 </div>
 </div>
 <!-- Tambah -->
@@ -113,6 +114,13 @@
                 <label>Nama</label>
                 <input type="text" class="form-control" wire:model="nama" value="{{ @old('nama') }}">
                 @error('nama')
+                <small class="form-text text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label>Alamat</label>
+                <input type="text" class="form-control" wire:model="alamat" value="{{ @old('alamat') }}">
+                @error('alamat')
                 <small class="form-text text-danger">{{ $message }}</small>
                 @enderror
             </div>

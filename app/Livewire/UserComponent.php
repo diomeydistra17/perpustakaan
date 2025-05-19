@@ -13,7 +13,7 @@ class UserComponent extends Component
 {
     use WithPagination,WithFileUploads;
     protected $paginationTheme='bootstrap';
-    public  $username, $nama, $email, $password, $id, $cari;
+    public  $username, $nama,$alamat, $email, $password, $id, $cari;
     public function render()
     {
         $layout['title']="Kelola User";
@@ -27,35 +27,36 @@ class UserComponent extends Component
         return view('livewire.user-component',$data)->layoutData($layout);
     }
 
-    public function store(){
-        $this->validate([
-            'username'=>'required',
-            'nama'=>'required',
-            'email'=>'required|email',
-            'password'=>'required',
-        ],[
-            'username.required'=>'Username Tidak Boleh Kosong!',
-            'nama.required'=>'Nama Tidak Boleh Kosong!',
-            'email.required'=>'Email Tidak Boleh Kosong!',
-            'email.email'=>'Format Email Salah!',
-            'password.required'=>'Password Tidak Boleh Kosong!',
-        ]);
-        User::create([
-            'username'=>$this->username,
-            'nama'=>$this->nama,
-            'email'=>$this->email,
-            'password'=>$this->password,
-            'jenis'=>'admin'
-        ]);
-        session()->flash('success','Berhasil Disimpan');
-        $this->reset();
-    }
+    // public function store(){
+    //     $this->validate([
+    //         'username'=>'required',
+    //         'nama'=>'required',
+    //         'email'=>'required|email',
+    //         'password'=>'required',
+    //     ],[
+    //         'username.required'=>'Username Tidak Boleh Kosong!',
+    //         'nama.required'=>'Nama Tidak Boleh Kosong!',
+    //         'email.required'=>'Email Tidak Boleh Kosong!',
+    //         'email.email'=>'Format Email Salah!',
+    //         'password.required'=>'Password Tidak Boleh Kosong!',
+    //     ]);
+    //     User::create([
+    //         'username'=>$this->username,
+    //         'nama'=>$this->nama,
+    //         'email'=>$this->email,
+    //         'password'=>$this->password,
+    //         'jenis'=>'admin'
+    //     ]);
+    //     session()->flash('success','Berhasil Disimpan');
+    //     $this->reset();
+    // }
 
     public function edit($id)
     {
         $user = User::find($id);
         $this->username=$user->username;
         $this->nama=$user->nama;
+        $this->alamat=$user->alamat;
         $this->email=$user->email;
         $this->id=$user->id;
     }

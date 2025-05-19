@@ -27,6 +27,7 @@
                     <div class="text-center">
                     <button type="submit" class="btn btn-color px-5 mb-3 w-100">Login</button>
                     </div>
+                    <div id="emailHelp" class="form-text text-center mb-5">Belum punya akun? <a href="{{ route('register') }}">Daftar Sekarang</a></div>
                 </form>
             </div>
         </div>

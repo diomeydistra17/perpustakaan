@@ -6,6 +6,7 @@ use App\Livewire\AnggotaComponent;
 use App\Livewire\BukuComponent;
 use App\Livewire\HomeComponent;
 use App\Livewire\LoginComponent;
+use App\Livewire\RegisterComponent;
 use App\Livewire\TransaksiComponent;
 use App\Livewire\UserComponent;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,11 @@ Route::get('/transaksi',TransaksiComponent::class)->name('transaksi')->middlewar
 Route::get('/pengembalian', PengembalianComponent::class)->name('pengembalian');
 Route::get('/cetak-laporan', [LaporanTransaksiController::class, 'cetak'])->name('laporan.cetak');
 Route::get('/profil', ProfilComponent::class)->name('profil');
+
 // Route::get('')
 
 
 
 Route::get('/login',LoginComponent::class)->name('login');
 Route::get('/logout',[LoginComponent::class,'keluar'])->name('logout');
+Route::get('/register', RegisterComponent::class)->name('register');
