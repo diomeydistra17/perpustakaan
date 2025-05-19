@@ -9,7 +9,6 @@
         <div class="card p-4 w-50">
             <p><strong>Nama:</strong> {{ $nama }}</p>
             <p><strong>Username:</strong> {{ $username }}</p>
-            <p><strong>Jenis:</strong> {{ $jenis }}</p>
             <p><strong>Email:</strong> {{ $email }}</p>
             <p><strong>Alamat:</strong> {{ $alamat }}</p>
         </div>
@@ -24,10 +23,6 @@
             <div class="mb-3">
                 <label class="form-label">Username</label>
                 <input type="text" class="form-control" value="{{ $username }}" readonly>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Jenis</label>
-                <input type="text" class="form-control" value="{{ $jenis }}" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email</label>
